@@ -51,7 +51,6 @@ print(substring(@res, 1, @len_res))
 --- MEDIAN (weather-observation-station-20)
 
 declare @n as int
-declare @median as decimal(18,4)
 set @n = (select top 1 rank() over(order by lat_n asc) as rank from station order by rank desc)
 
 if @n % 2 <> 0
