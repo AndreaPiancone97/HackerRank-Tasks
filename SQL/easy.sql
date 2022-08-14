@@ -99,8 +99,33 @@ where right(city, 1) in ('a', 'e', 'i', 'o', 'u')
 and left(city, 1) in ('a', 'e', 'i', 'o', 'u')
 
 --- weather-observation-station-9
---- 
+--- Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
 
+select distinct city
+from station
+where left(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+
+--- weather-observation-station-10
+--- Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+select distinct city
+from station
+where right(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+
+--- weather-observation-station-11
+--- Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+select distinct city
+from station
+where right(city, 1) not in ( 'a', 'e', 'i', 'o', 'u')
+or left(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+
+--- weather-observation-station-12
+--- Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+select distinct city 
+from station 
+where (left(city,1) not in ('a','e','i','o','u') and  right(city,1) not in ('a','e','i','o','u'))
 
 --- draw the triangle -1 ------
 
