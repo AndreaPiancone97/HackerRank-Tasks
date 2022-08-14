@@ -48,5 +48,18 @@ set @len_res = len(@res) - 1
 print(substring(@res, 1, @len_res))
     
         
+--- MEDIAN (weather-observation-station-20)
 
+declare @n as int
+declare @median as decimal(18,4)
+set @n = (select top 1 rank() over(order by lat_n asc) as rank from station order by rank desc)
+
+if @n % 2 <> 0
+    select cast(lat_n as decimal(18,4))
+    from (select lat_n, rank() over(order by lat_n asc) as rank from station) as a
+    where rank = (@n+1)/2 
+else
+    select cast(sum(lat_n)/2 as decimal(18,4))
+    from (select lat_n, rank() over(order by lat_n asc) as rank from station) as a
+    where rank = (@n/2) or rank = (@n/2) + 1
 
