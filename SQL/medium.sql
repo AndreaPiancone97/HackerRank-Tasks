@@ -33,6 +33,9 @@ while @n <= 1000
             begin
                 if @n % @div = 0
                     set @cnt = @cnt + 1
+                if @cnt > 2
+                    break;
+                    
                 set @div = @div + 1
             end
         
@@ -43,5 +46,7 @@ while @n <= 1000
 
 set @len_res = len(@res) - 1
 print(substring(@res, 1, @len_res))
+    
+        
 
 
