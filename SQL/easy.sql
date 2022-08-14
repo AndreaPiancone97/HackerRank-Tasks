@@ -1,3 +1,6 @@
+--- USED MS SQL SERVER ----
+
+
 --- draw the triangle -1 ------
 
 declare @number as int;
